@@ -15,4 +15,10 @@ $ ->
     #   alpha
     #   beta
     #   gamma
-    $("#sensor").empty().append("hoge")
+    dom = """
+    acc:x:#{event.acceleration.x}
+    acc:y:#{event.acceleration.y}
+    acc:z:#{event.acceleration.z}
+
+    """
+    $("#sensor").empty().append(dom)
