@@ -15,3 +15,4 @@ $ ->
     #   alpha
     #   beta
     #   gamma
+    $("#sensor").empty().append("hoge")

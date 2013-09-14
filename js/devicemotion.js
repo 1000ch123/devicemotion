@@ -2,6 +2,7 @@
 $(function() {
   console.log("loaded");
   return $(window).bind("devicemotion", function(event) {
-    return console.log(event);
+    console.log(event);
+    return $("#sensor").empty().append("hoge");
   });
 });
