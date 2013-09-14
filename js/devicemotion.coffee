@@ -35,15 +35,15 @@ $ ->
 
     $("#sensor").empty().append("here")
     dom = """
-    hello
-    object:#{event.originalEvent.acceleration}
-    acc:x:#{x}
-    acc:y:#{y}
-    acc:z:#{z}
-    dir:x:#{ax}
-    dir:y:#{ay}
-    dir:z:#{az}
-    count:#{count}
+    hello<br>
+    object:#{event.originalEvent.acceleration}<br>
+    acc:x:#{x}<br>
+    acc:y:#{y}<br>
+    acc:z:#{z}<br>
+    dir:x:#{ax}<br>
+    dir:y:#{ay}<br>
+    dir:z:#{az}<br>
+    count:#{count}<br>
     """
     $("#sensor").empty().append(dom)
 
