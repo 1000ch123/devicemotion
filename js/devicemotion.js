@@ -35,7 +35,7 @@ $(function() {
     acc = event.originalEvent.acceleration;
     dir = event.originalEvent.accelerationIncludingGravity;
     accDiff = acc.x - pacc.x;
-    if (Math.abs(acc.x < 0.1)) {
+    if (Math.abs(accDiff) > 0.1) {
       shake += 1;
     }
     $("#sensor").empty().append("here");
