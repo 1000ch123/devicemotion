@@ -31,13 +31,14 @@ $(function() {
   });
   return $(window).bind("devicemotion", function(event) {
     var acc, accDiff, dir, pacc, pdir;
-    console.log(event);
     acc = event.originalEvent.acceleration;
     dir = event.originalEvent.accelerationIncludingGravity;
     accDiff = acc.x - pacc.x;
-    if (Math.abs(accDiff) > 0.1) {
-      shake += 1;
-    }
+    /*
+    if Math.abs(accDiff) > 0.1
+      shake += 1
+    */
+
     $("#sensor").empty().append("here");
     dom = "hello<br>\nacc:x:" + acc.x + "<br>\nacc:y:" + acc.y + "<br>\nacc:z:" + acc.z + "<br>\ndir:x:" + dir.x + "<br>\ndir:y:" + dir.y + "<br>\ndir:z:" + dir.z + "<br>\ncount:" + count + "<br>\nshake:" + shake + "<br>";
     $("#sensor").empty().append(dom);

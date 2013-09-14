@@ -24,7 +24,6 @@ $ ->
     z:0
 
   $(window).bind "devicemotion", (event)->
-    console.log event
     # devicemotionで何が取れるのか調査
     # acceleration:
     #   x
@@ -43,10 +42,10 @@ $ ->
     dir = event.originalEvent.accelerationIncludingGravity
     
     accDiff = acc.x - pacc.x
-
+    ###
     if Math.abs(accDiff) > 0.1
       shake += 1
-
+   ###
     $("#sensor").empty().append("here")
     dom = """
     hello<br>
