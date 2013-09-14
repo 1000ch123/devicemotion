@@ -4,8 +4,6 @@ $ ->
   shake = 0
   dom = "hoge"
 
-  x = 0
-  y = 0
   acc: 
     x:0
     y:0
@@ -41,11 +39,11 @@ $ ->
     acc = event.originalEvent.acceleration
     dir = event.originalEvent.accelerationIncludingGravity
     
-    accDiff = acc.x - pacc.x
+    #accDiff = acc.x - pacc.x
     ###
     if Math.abs(accDiff) > 0.1
       shake += 1
-   ###
+    ###
     $("#sensor").empty().append("here")
     dom = """
     hello<br>
