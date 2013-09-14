@@ -16,10 +16,20 @@ $(function() {
       x: 0,
       y: 0,
       z: 0
+    },
+    pacc: {
+      x: 0,
+      y: 0,
+      z: 0
+    },
+    pdir: {
+      x: 0,
+      y: 0,
+      z: 0
     }
   });
   return $(window).bind("devicemotion", function(event) {
-    var ax, ay, az, z;
+    var acc, ax, ay, az, dir, pacc, pdir, z;
     console.log(event);
     x = event.originalEvent.acceleration.x;
     y = event.originalEvent.acceleration.y;
@@ -27,8 +37,12 @@ $(function() {
     ax = event.originalEvent.accelerationIncludingGravity.x;
     ay = event.originalEvent.accelerationIncludingGravity.y;
     az = event.originalEvent.accelerationIncludingGravity.z;
+    acc = event.originalEvent.acceleration;
+    dir = event.originalEvent.accelerationIncludingGravity;
     $("#sensor").empty().append("here");
-    dom = "hello<br>\nobject:" + event.originalEvent.acceleration + "<br>\nacc:x:" + x + "<br>\nacc:y:" + y + "<br>\nacc:z:" + z + "<br>\ndir:x:" + ax + "<br>\ndir:y:" + ay + "<br>\ndir:z:" + az + "<br>\ncount:" + count + "<br>";
-    return $("#sensor").empty().append(dom);
+    dom = "hello<br>\nacc:x:" + acc.x + "<br>\nacc:y:" + acc.y + "<br>\nacc:z:" + acc.z + "<br>\ndir:x:" + dir.x + "<br>\ndir:y:" + dir.y + "<br>\ndir:z:" + dir.z + "<br>\ncount:" + count + "<br>";
+    $("#sensor").empty().append(dom);
+    pacc = acc;
+    return pdir = dir;
   });
 });

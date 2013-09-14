@@ -13,6 +13,15 @@ $ ->
     x:0
     y:0
     z:0
+  pacc:
+    x:0
+    y:0
+    z:0
+  pdir:
+    x:0
+    y:0
+    z:0
+
   $(window).bind "devicemotion", (event)->
     console.log event
     # devicemotionで何が取れるのか調査
@@ -35,21 +44,24 @@ $ ->
     ax = event.originalEvent.accelerationIncludingGravity.x
     ay = event.originalEvent.accelerationIncludingGravity.y
     az = event.originalEvent.accelerationIncludingGravity.z
-    
-    
+
+    acc = event.originalEvent.acceleration
+    dir = event.originalEvent.accelerationIncludingGravity
 
     $("#sensor").empty().append("here")
     dom = """
     hello<br>
-    object:#{event.originalEvent.acceleration}<br>
-    acc:x:#{x}<br>
-    acc:y:#{y}<br>
-    acc:z:#{z}<br>
-    dir:x:#{ax}<br>
-    dir:y:#{ay}<br>
-    dir:z:#{az}<br>
+    acc:x:#{acc.x}<br>
+    acc:y:#{acc.y}<br>
+    acc:z:#{acc.z}<br>
+    dir:x:#{dir.x}<br>
+    dir:y:#{dir.y}<br>
+    dir:z:#{dir.z}<br>
     count:#{count}<br>
     """
     $("#sensor").empty().append(dom)
+
+    pacc = acc
+    pdir = dir
 
 
