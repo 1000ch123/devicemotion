@@ -1,5 +1,6 @@
 $ ->
   console.log "loaded"
+  count = 0
   $(window).bind "devicemotion", (event)->
     console.log event
     # devicemotionで何が取れるのか調査
@@ -15,10 +16,22 @@ $ ->
     #   alpha
     #   beta
     #   gamma
-    dom = """
-    acc:x:#{event.acceleration.x}
-    acc:y:#{event.acceleration.y}
-    acc:z:#{event.acceleration.z}
+    x = event.originalEvent.acceleration.x
+    y = event.originalEvent.acceleration.y
+    z = event.originalEvent.acceleration.z
 
+    ax = event.originalEvent.accelerationIncludingGravity.x;
+    ay = event.originalEvent.accelerationIncludingGravity.y;
+    az = event.originalEvent.accelerationIncludingGravity.z;
+     
+    dom = """
+    hello
+    acc:x:#{x}
+    acc:y:#{y}
+    acc:z:#{z}
+    dir:x:#{ax}
+    dir:y:#{ay}
+    dir:z:#{az}
+    count:#{count}
     """
-    $("#sensor").empty().append(dom)
+   $("#sensor").empty().append(dom)
