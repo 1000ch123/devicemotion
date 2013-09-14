@@ -5,9 +5,14 @@ $ ->
 
   x = 0
   y = 0
-  position = 
-    x = 0
-    y = 0
+  acc: 
+    x:0
+    y:0
+    z:0
+  dir:
+    x:0
+    y:0
+    z:0
   $(window).bind "devicemotion", (event)->
     console.log event
     # devicemotionで何が取れるのか調査
@@ -31,7 +36,7 @@ $ ->
     ay = event.originalEvent.accelerationIncludingGravity.y
     az = event.originalEvent.accelerationIncludingGravity.z
     
-    if
+    
 
     $("#sensor").empty().append("here")
     dom = """
