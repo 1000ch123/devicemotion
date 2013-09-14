@@ -41,10 +41,11 @@ $ ->
     acc = event.originalEvent.acceleration
     dir = event.originalEvent.accelerationIncludingGravity
     
-    if (Math.abs(acc.x) > 3.0 ) and addFlg
+    threshold = 2.0
+    if (Math.abs(acc.x) > threshold ) and addFlg
       shake += 1
       addFlg = false
-    else if (Math.abs(acc.x) < 3.0) and !addFlg
+    else if (Math.abs(acc.x) < threshold ) and !addFlg
       addFlg = true
 
     $("#sensor").empty().append("here")

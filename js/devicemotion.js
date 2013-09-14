@@ -30,13 +30,14 @@ $(function() {
     }
   });
   return $(window).bind("devicemotion", function(event) {
-    var acc, dir, pacc, pdir;
+    var acc, dir, pacc, pdir, threshold;
     acc = event.originalEvent.acceleration;
     dir = event.originalEvent.accelerationIncludingGravity;
-    if ((Math.abs(acc.x) > 3.0) && addFlg) {
+    threshold = 2.0;
+    if ((Math.abs(acc.x) > threshold) && addFlg) {
       shake += 1;
       addFlg = false;
-    } else if ((Math.abs(acc.x) < 3.0) && !addFlg) {
+    } else if ((Math.abs(acc.x) < threshold) && !addFlg) {
       addFlg = true;
     }
     $("#sensor").empty().append("here");
