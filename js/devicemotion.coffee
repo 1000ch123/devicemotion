@@ -2,6 +2,12 @@ $ ->
   console.log "loaded"
   count = 0
   dom = "hoge"
+
+  x = 0
+  y = 0
+  position = 
+    x = 0
+    y = 0
   $(window).bind "devicemotion", (event)->
     console.log event
     # devicemotionで何が取れるのか調査
@@ -24,10 +30,13 @@ $ ->
     ax = event.originalEvent.accelerationIncludingGravity.x
     ay = event.originalEvent.accelerationIncludingGravity.y
     az = event.originalEvent.accelerationIncludingGravity.z
-     
+    
+    if
+
     $("#sensor").empty().append("here")
     dom = """
     hello
+    object:#{event.originalEvent.acceleration}
     acc:x:#{x}
     acc:y:#{y}
     acc:z:#{z}
@@ -37,3 +46,5 @@ $ ->
     count:#{count}
     """
     $("#sensor").empty().append(dom)
+
+
